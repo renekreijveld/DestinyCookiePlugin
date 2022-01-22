@@ -102,7 +102,7 @@
                 </field>
                 <field name="popupmark" type="textarea" default="We use marketing cookies for functions like social media share-buttons and keeping track of surfing behaviour. With these cookies, we can show you relevant content and advertisements." label="DESTINY_COOKIE_PLUGIN_POPUP_MARK" filter="safehtml" translate_default="true" class="span8" showon="showmark:1" />
                 <field name="buttonsave" type="text" default="Save current settings" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONSAVE" filter="safehtml" translate_default="true" />
-                <field name="buttonall" type="text" default="Save and accept" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONALL" filter="safehtml" translate_default="true" />
+                <field name="buttonall" type="text" default="Save and accept all" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONALL" filter="safehtml" translate_default="true" />
                 <field name="popup_colornote" type="note" label="DESTINY_COOKIE_PLUGIN_COLORSETTINGS" />
                 <field name="popup_bgcolor" type="color" default="#ffffff" label="DESTINY_COOKIE_PLUGIN_POPUP_BGCOLOR" />
                 <field name="popup_titlecolor" type="color" default="#000000" label="DESTINY_COOKIE_PLUGIN_POPUP_TITLECOLOR" />
