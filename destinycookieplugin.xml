@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8" type="plugin" group="system" method="upgrade">
+    <name>System - Destiny Cookie Plugin</name>
+    <author>Destiny B.V.</author>
+    <creationDate>March 2021</creationDate>
+    <copyright>Copyright (C) 2021-2022 Destiny B.V. All rights rfeserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>rene.kreijveld@destiny.nl</authorEmail>
+    <authorUrl>www.destiny.nl</authorUrl>
+    <version>1.0.9</version>
+    <description>
+    <![CDATA[
+    <div style='font-weight:normal;text-align:left;line-height:1.5;margin-bottom:1em;'>
+    <p><b>Destiny Cookie Plugin</b></p>
+    <p>Met deze plugin beheert u uw cookie instellingen en laadt u uw analytische en marketing scripts conform de AVG/GDPR.<br/>
+    Na dat de website bezoeker zijn keuze heeft gemaakt wordt deze opgeslagen in de functionele cookie 'destinycp'. Door deze cookie op de pc te wissen kan de website bezoeker opnieuw de keuze m.b.t. cookies vastleggen.<br/>
+    De 'destinycp' cookie heeft een levensduur van 1 jaar.</p>
+    <p>With this plugin you control your website cookie settings and you can load analytical and marketing scritps according to GDPR.<br/>
+    After the website visitor made their choice, the choice is stored in the functional cookie 'destinycp'. By deleting this cookie from the pc, the website visitor can choose again how cookies are handled.<br/>
+    The lifetime of the 'destinycp' cookie is 1 year.</p>
+    </div>
+    ]]>
+    </description>
+
+    <files>
+        <filename plugin="destinycookieplugin">destinycookieplugin.php</filename>
+        <folder plugin="destinycookieplugin">includes</folder>
+        <folder plugin="destinycookieplugin">language</folder>
+    </files>
+    <media destination="plg_system_destinycookieplugin" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="demomode" type="radio" default="0" label="DESTINY_COOKIE_PLUGIN_POPUP_DEMOMODE" description="DESTINY_COOKIE_PLUGIN_POPUP_DEMOMODE_DESC" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="banner" label="DESTINY_COOKIE_PLUGIN_FIELDSET_BANNER">
+                <field name="display_position" type="radio" default="bottom" label="DESTINY_COOKIE_PLUGIN_POSITION" class="btn-group btn-group-yesno">
+                    <option value="top">DESTINY_COOKIE_PLUGIN_TOP</option>
+                    <option value="bottom">DESTINY_COOKIE_PLUGIN_BOTTOM</option>
+                </field>
+                <field name="bannerfontfamily" type="list" default="template" label="DESTINY_COOKIE_PLUGIN_FONT" description="DESTINY_COOKIE_PLUGIN_FONT_DESC" translate_default="true" class="span4">
+                    <option value="template">DESTINY_COOKIE_PLUGIN_FONT_TEMPLATE</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
+                    <option value="'Times New Roman', Times, serif">'Times New Roman', Times, serif</option>
+                    <option value="Verdana, Geneva, Tahoma, sans-serif">Verdana, Geneva, Tahoma, sans-serif</option>
+                    <option value="other">DESTINY_COOKIE_PLUGIN_FONT_OTHER</option>
+                </field>
+                <field name="bannerfont" type="text" label="DESTINY_COOKIE_PLUGIN_FONT_OWN" description="DESTINY_COOKIE_PLUGIN_FONT_OWN_DESC" filter="safehtml" translate_default="true" class="span4" showon="bannerfontfamily:other"/>
+                <field name="bannerfontsize" type="text" default="15px" label="DESTINY_COOKIE_PLUGIN_BFONTSIZE" filter="safehtml" translate_default="true" />
+                <field name="banner_text" type="textarea" default="We use cookies for functioning and improving our website." label="DESTINY_COOKIE_PLUGIN_CONTENT" filter="safehtml" translate_default="true" class="span8" />
+                <field name="button_ok" type="text" default="Okay, continue" label="DESTINY_COOKIE_PLUGIN_BUTTON_CONTINUE" translate_default="true" />
+                <field name="link_settings" type="text" default="Modify settings" label="DESTINY_COOKIE_PLUGIN_LINK_TEXT" translate_default="true" />
+                <field name="banner_colornote" type="note" label="DESTINY_COOKIE_PLUGIN_COLORSETTINGS" />
+                <field name="banner_bgcolor" type="color" default="#fafafa" label="DESTINY_COOKIE_PLUGIN_BANNER_BGCOLOR" />
+                <field name="banner_textcolor" type="color" default="#505050" label="DESTINY_COOKIE_PLUGIN_BANNER_TEXTCOLOR" />
+                <field name="banner_linkcolor" type="color" default="#b0b0b0" label="DESTINY_COOKIE_PLUGIN_BANNER_LINKCOLOR" />
+                <field name="button_continue_bgcolor" type="color" default="#0d7a0d" label="DESTINY_COOKIE_PLUGIN_BANNER_BUTTON_BGCOLOR" />
+                <field name="button_continue_textcolor" type="color" default="#ffffff" label="DESTINY_COOKIE_PLUGIN_BANNER_BUTTON_TEXTCOLOR" />
+                <field name="excludesnote" type="note" label="DESTINY_COOKIE_PLUGIN_EXCLUDESNOTE" />
+                <field name="excludes" type="menuitem" default="" multiple="true" label="DESTINY_COOKIE_PLUGIN_EXCLUDES" description="DESTINY_COOKIE_PLUGIN_EXCLUDES_DESC" />
+            </fieldset>
+            <fieldset name="popup" label="DESTINY_COOKIE_PLUGIN_FIELDSET_POPUP">
+                <field name="popupfontfamily" type="list" default="template" label="DESTINY_COOKIE_PLUGIN_FONT" description="DESTINY_COOKIE_PLUGIN_FONT_DESC" translate_default="true" class="span4">
+                    <option value="template">DESTINY_COOKIE_PLUGIN_FONT_TEMPLATE</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
+                    <option value="'Times New Roman', Times, serif">'Times New Roman', Times, serif</option>
+                    <option value="Verdana, Geneva, Tahoma, sans-serif">Verdana, Geneva, Tahoma, sans-serif</option>
+                    <option value="other">DESTINY_COOKIE_PLUGIN_FONT_OTHER</option>
+                </field>
+                <field name="popupfont" type="text" label="DESTINY_COOKIE_PLUGIN_FONT_OWN" description="DESTINY_COOKIE_PLUGIN_FONT_OWN_DESC" filter="safehtml" translate_default="true" class="span4" showon="popupfontfamily:other"/>
+                <field name="popupfontsize" type="text" default="15px" label="DESTINY_COOKIE_PLUGIN_PFONTSIZE" filter="safehtml" translate_default="true" />
+                <field name="popuptitle" type="text" default="Cookie settings" label="DESTINY_COOKIE_PLUGIN_POPUP_TITLE" filter="safehtml" translate_default="true" />
+                <field name="popupintro" type="textarea" default="We use cookies to analyse and improve our website, and we use them for marketing to make sure you will see relevant content. Not allowing cookies can influence your user experience." label="DESTINY_COOKIE_PLUGIN_POPUP_INTRO" filter="safehtml" translate_default="true" class="span8" />
+                <field name="showfunc" type="radio" default="1" label="DESTINY_COOKIE_PLUGIN_POPUP_SHOW_FUNC" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="popupfunc" type="textarea" default="Functional cookies make sure our website works good and are always activated. All to present a good working website to you." label="DESTINY_COOKIE_PLUGIN_POPUP_FUNC" filter="safehtml" translate_default="true" class="span8" showon="showfunc:1" />
+                <field name="showana" type="radio" default="1" label="DESTINY_COOKIE_PLUGIN_POPUP_SHOW_ANA" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="anachecked" type="radio" default="0" label="DESTINY_COOKIE_PLUGIN_POPUP_ANA_CHECKED" class="btn-group btn-group-yesno" showon="showana:1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="popupana" type="textarea" default="With analytical cookies we can collect (anonimised) data about the use of our website. This helps us to optimise the website." label="DESTINY_COOKIE_PLUGIN_POPUP_ANA" filter="safehtml" translate_default="true" class="span8" showon="showana:1" />
+                <field name="showmark" type="radio" default="1" label="DESTINY_COOKIE_PLUGIN_POPUP_SHOW_MARK" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="markchecked" type="radio" default="0" label="DESTINY_COOKIE_PLUGIN_POPUP_MARK_CHECKED" class="btn-group btn-group-yesno" showon="showmark:1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="popupmark" type="textarea" default="We use marketing cookies for functions like social media share-buttons and keeping track of surfing behaviour. With these cookies, we can show you relevant content and advertisements." label="DESTINY_COOKIE_PLUGIN_POPUP_MARK" filter="safehtml" translate_default="true" class="span8" showon="showmark:1" />
+                <field name="buttonsave" type="text" default="Save current settings" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONSAVE" filter="safehtml" translate_default="true" />
+                <field name="buttonall" type="text" default="Save and accept" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONALL" filter="safehtml" translate_default="true" />
+                <field name="popup_colornote" type="note" label="DESTINY_COOKIE_PLUGIN_COLORSETTINGS" />
+                <field name="popup_bgcolor" type="color" default="#ffffff" label="DESTINY_COOKIE_PLUGIN_POPUP_BGCOLOR" />
+                <field name="popup_titlecolor" type="color" default="#000000" label="DESTINY_COOKIE_PLUGIN_POPUP_TITLECOLOR" />
+                <field name="popup_textcolor" type="color" default="#000000" label="DESTINY_COOKIE_PLUGIN_POPUP_TEXTCOLOR" />
+                <field name="popup_barcolor" type="color" default="#f2f2f2" label="DESTINY_COOKIE_PLUGIN_POPUP_BARCOLOR" />
+                <field name="popup_slidecolor" type="color" default="#0aac07" label="DESTINY_COOKIE_PLUGIN_POPUP_SLIDECOLOR" />
+                <field name="popup_buttonsave_bdcolor" type="color" default="#aaaaaa" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONSAVE_BDCOLOR" />
+                <field name="popup_buttonsave_textcolor" type="color" default="#aaaaaa" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONSAVE_TEXTCOLOR" />
+                <field name="popup_buttonall_bgcolor" type="color" default="#0000ff" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONALL_BGCOLOR" />
+                <field name="popup_buttonall_textcolor" type="color" default="#ffffff" label="DESTINY_COOKIE_PLUGIN_POPUP_BUTTONALL_TEXTCOLOR" />
+            </fieldset>
+            <fieldset name="functional" label="DESTINY_COOKIE_PLUGIN_FUNCTIONAL_SCRIPTS">
+                <field name="func_scripts_note" type="note" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_FUNC_NOTE" />
+                <field name="func_scripts_headtop" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP_DESC" filter="raw" rows="12" class="span6" />
+                <field name="func_scripts_headbot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT_DESC" filter="raw" rows="12" class="span6" />
+                <field name="func_scripts_bodybot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT_DESC" filter="raw" rows="12" class="span6" />
+            </fieldset>
+            <fieldset name="analytics" label="DESTINY_COOKIE_PLUGIN_ANALYTICS_SCRIPTS">
+                <field name="ana_scripts_note" type="note" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_ANA_NOTE" />
+                <field name="ana_scripts_headtop" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP_DESC" filter="raw" rows="12" class="span6" />
+                <field name="ana_scripts_headbot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT_DESC" filter="raw" rows="12" class="span6" />
+                <field name="ana_scripts_bodybot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT_DESC" filter="raw" rows="12" class="span6" />
+            </fieldset>
+            <fieldset name="marketing" label="DESTINY_COOKIE_PLUGIN_MARKETING_SCRIPTS">
+                <field name="mark_scripts_note" type="note" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_MARK_NOTE" />
+                <field name="mark_scripts_headtop" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADTOP_DESC" filter="raw" rows="12" class="span6" />
+                <field name="mark_scripts_headbot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_HEADBOT_DESC" filter="raw" rows="12" class="span6" />
+                <field name="mark_scripts_bodybot" type="textarea" default="" label="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT" description="DESTINY_COOKIE_PLUGIN_SCRIPTS_BODYBOT_DESC" filter="raw" rows="12" class="span6" />
+            </fieldset>
+        </fields>
+    </config>
+    <scriptfile>script.destinycookieplugin.php</scriptfile>
+</extension>
