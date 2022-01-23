@@ -24,7 +24,7 @@
 
     <files>
         <filename plugin="destinycookieplugin">destinycookieplugin.php</filename>
-        <filename plugin="destinycookieplugin">LICENSE.TXT</filename>
+        <filename plugin="destinycookieplugin">LICENSE.txt</filename>
         <filename plugin="destinycookieplugin">README.md</filename>
         <folder plugin="destinycookieplugin">includes</folder>
         <folder plugin="destinycookieplugin">language</folder>
